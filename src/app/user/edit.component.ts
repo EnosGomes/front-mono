@@ -10,7 +10,7 @@ import { Router, NavigationEnd, NavigationStart, ActivatedRoute } from '@angular
 })
 export class EditComponent implements OnInit {
 
-  aid: string;
+  id: string;
   hospital: Hospital = new Hospital();
 
   constructor(private hospitaisService: HospitaisService, 
@@ -19,11 +19,11 @@ export class EditComponent implements OnInit {
 
   ngOnInit() {
 
-    console.log("aid"+this.aid)
+    console.log("Ida da rota = ", this.route.snapshot.params['id']);
 
-    this.aid = this.route.snapshot.params['aid'];
+    this.id = this.route.snapshot.params['id'];
 
-    this.hospitaisService.getHospitalById(this.aid).subscribe( data =>{
+    this.hospitaisService.getHospitalById(this.id).subscribe( data =>{
       this.hospital = data;
       console.log(data);
     },
@@ -42,7 +42,6 @@ export class EditComponent implements OnInit {
   }
 
   onSubmit(){
-    console.log(this.hospital);
     this.updateHospital();
   }
 

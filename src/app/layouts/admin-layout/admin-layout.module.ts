@@ -17,10 +17,14 @@ import { NotificationsComponent } from '../../notifications/notifications.compon
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
 import { EditComponent } from 'app/user/edit.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 @NgModule({
   imports: [
+    MatButtonModule, MatDialogModule,
+    MatDialogModule, MatButtonModule,
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
@@ -39,7 +43,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     NotificationsComponent,
     UpgradeComponent
   ],
-  exports:[ReactiveFormsModule, FormsModule
+  exports:[ReactiveFormsModule, FormsModule,
 
   ]
 })

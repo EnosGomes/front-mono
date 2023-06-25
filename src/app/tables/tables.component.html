@@ -17,17 +17,16 @@
                             </thead>
                             <tbody>
                                 <tr *ngFor="let hospi of hospitais">
-                                    <td>{{hospi.id}}</td>
                                     <td>{{hospi.nome}}</td>
                                     <td>{{hospi.nome}}</td>
                                     <td>
-                                        <a [routerLink]="['./table',1]" class="nav-link">
+                                        <a routerLink="/table/edit/{{hospi.id}}" class="nav-link">
                                             <button class="btn btn-primary btn-xs " (click)="updateHospital(hospi.id)">Editar</button></a>
                                         <a routerLink="./table" class="nav-link">
                                             <button class="btn btn-danger btn-xs" (click)="deleteHospital(hospi.id)">Excluir</button></a>
                                     </td>
 
-                                    <button (click)="openConfirmationDialog()" type="button" class="btn btn-primary">Open dialog</button>
+                                    <button mat-raised-button (click)="openDialog('0ms', '0ms')">Open dialog without animation</button>
                                 </tr>
                             </tbody>
                         </table>

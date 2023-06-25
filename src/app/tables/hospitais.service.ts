@@ -23,6 +23,7 @@ export class HospitaisService {
       }
 
       getHospitalById(id: string): Observable<Hospital>{
+        console.log("Id do service:", id)
         return this.http.get<Hospital>(`${baseUrl}/id/${id}`);
       }
 
