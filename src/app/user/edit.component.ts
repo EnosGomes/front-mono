@@ -19,23 +19,21 @@ export class EditComponent implements OnInit {
 
   ngOnInit() {
 
-    console.log("Ida da rota = ", this.route.snapshot.params['id']);
+    //console.log("Ida da rota = ", this.route.snapshot.params['id']);
 
     this.id = this.route.snapshot.params['id'];
 
     this.hospitaisService.getHospitalById(this.id).subscribe( data =>{
       this.hospital = data;
-      console.log(data);
     },
     error => console.log(error));
   
   }
-
   //criar um novo hospital
   updateHospital(){
     this.hospitaisService.updateHospital(this.hospital.id,this.hospital)
     .subscribe( data =>{
-      console.log(data);
+      //console.log(data);
       this.router.navigate(['/table']);
     },
     error => console.log(error));
@@ -44,5 +42,4 @@ export class EditComponent implements OnInit {
   onSubmit(){
     this.updateHospital();
   }
-
 }

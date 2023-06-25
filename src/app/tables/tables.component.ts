@@ -50,26 +50,17 @@ export class TablesComponent implements OnInit {
     .subscribe(
       data => {
         this.hospitais = data;
-        console.log(data);
       },
-      error => {
-        console.log(error);
-      });
+      error => {      });
   }
 
   updateHospital(id:string){
-    console.log(this);
-    console.log("Id = ", id)
     this.router.navigate(['/edit/'+id]) ;
   }
 
   deleteHospital(id) {
     this.hospitaisService.deleteHospital(id).subscribe(
-      data => {        
-        console.log(data);
-      },
-      error => {
-        console.log(error);
-      });
+      data => {       },
+      error => {      });
   }
 }

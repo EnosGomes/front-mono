@@ -4,8 +4,8 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="header">
-                        <h4 class="title">Striped Table with Hover</h4>
-                        <p class="category">Here is a subtitle for this table</p>
+                        <h4 class="title">Hospitais</h4>
+                        <!-- <p class="category">Here is a subtitle for this table</p> -->
                         <a routerLink="../user" class="nav-link"><button type="button" class="btn btn-primary">Adicionar Hospital</button></a>
                     </div>
                     <div class="content table-responsive table-full-width">
@@ -16,43 +16,19 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr *ngFor="let hospi of hospitais">
-                                    <td>{{hospi.nome}}</td>
-                                    <td>{{hospi.nome}}</td>
+                                <tr *ngFor="let hospital of hospitais">
+                                    <td>{{hospital.nome}}</td>
+                                    <td>{{hospital.nome}}</td>
                                     <td>
-                                        <a routerLink="/table/edit/{{hospi.id}}" class="nav-link">
-                                            <button class="btn btn-primary btn-xs " (click)="updateHospital(hospi.id)">Editar</button></a>
+                                        <a routerLink="/table/edit/{{hospital.id}}" class="nav-link">
+                                            <button class="btn btn-primary btn-xs " (click)="updateHospital(hospital.id)">Editar</button></a>
                                         <a routerLink="./table" class="nav-link">
-                                            <button class="btn btn-danger btn-xs" (click)="deleteHospital(hospi.id)">Excluir</button></a>
+                                            <button class="btn btn-danger btn-xs" (click)="deleteHospital(hospital.id)">Excluir</button></a>
                                     </td>
-
-                                    <button mat-raised-button (click)="openDialog('0ms', '0ms')">Open dialog without animation</button>
                                 </tr>
                             </tbody>
                         </table>
 
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-12">
-                <div class="card card-plain">
-                    <div class="header">
-                        <h4 class="title">Table on Plain Background</h4>
-                        <p class="category">Here is a subtitle for this table</p>
-                    </div>
-                    <div class="content table-responsive table-full-width">
-                        <table class="table table-hover">
-                            <thead>
-                                <tr>
-                                    <th *ngFor="let cell of tableData2.headerRow">{{ cell }}</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr *ngFor="let row of tableData2.dataRows">
-                                    <td *ngFor="let cell of row">{{cell}}</td>
-                                </tr>
-                            </tbody>
-                        </table>
                     </div>
                 </div>
             </div>
