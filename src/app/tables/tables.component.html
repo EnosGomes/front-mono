@@ -18,13 +18,15 @@
                             <tbody>
                                 <tr *ngFor="let hospital of hospitais">
                                     <td>{{hospital.nome}}</td>
-                                    <td>{{hospital.nome}}</td>
+                                    <td>{{hospital.codigo}}</td>
+                                    <td [className]="hospital.ativo ? 'ativa' : 'inativa'">{{hospital.ativo ? "Ativo" :"Inativo" }}</td>
                                     <td>
                                         <a routerLink="/table/edit/{{hospital.id}}" class="nav-link">
                                             <button class="btn btn-primary btn-xs " (click)="updateHospital(hospital.id)">Editar</button></a>
                                         <a routerLink="./table" class="nav-link">
                                             <button class="btn btn-danger btn-xs" (click)="deleteHospital(hospital.id)">Excluir</button></a>
                                     </td>
+                                    <td><button mat-raised-button (click)="openDialog(hospital.id)">Excluir</button></td>
                                 </tr>
                             </tbody>
                         </table>

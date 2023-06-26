@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Hospital } from './hospital';
 import { HospitaisService } from './hospitais.service';
 import { Router } from '@angular/router';
+import {MatDialog, MatDialogRef, MatDialogModule} from '@angular/material/dialog';
+import { DialogAnimationsExampleDialog } from './table-dialog';
 declare interface TableData {
     headerRow: string[];
     dataRows: string[][];
@@ -19,12 +21,12 @@ export class TablesComponent implements OnInit {
     currentHospital = null;
     message = '';
 
-  constructor(private hospitaisService: HospitaisService, private router: Router) { }
+  constructor(private hospitaisService: HospitaisService, private router: Router, public dialog: MatDialog) { }
  
   ngOnInit() {
 
     this.tableData1 = {
-      headerRow: [ 'Name', 'Name', 'Opções'],
+      headerRow: [ 'Name', 'Name', 'Status','Opções'],
       dataRows: [
           ['1', 'Dakota Rice', 'Niger', 'Oud-Turnhout', '$36,738'],
           ['2', 'Minerva Hooper', 'Curaçao', 'Sinaai-Waas', '$23,789'],
@@ -50,6 +52,7 @@ export class TablesComponent implements OnInit {
     .subscribe(
       data => {
         this.hospitais = data;
+        console.log(data);
       },
       error => {      });
   }
@@ -62,5 +65,17 @@ export class TablesComponent implements OnInit {
     this.hospitaisService.deleteHospital(id).subscribe(
       data => {       },
       error => {      });
+  }
+
+  openDialog(id:string) {
+    const dialogRef = this.dialog.open(DialogAnimationsExampleDialog, {
+      data: {
+        id: id
+      }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      //console.log("Id vindo da tela de hospitais: ", id);
+    });
   }
 }

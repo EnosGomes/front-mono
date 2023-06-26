@@ -1,0 +1,9 @@
+.ativa {
+    color: green;
+    font-weight: bold;
+}
+
+.inativa {
+    color: red;
+    font-weight: bold;
+}

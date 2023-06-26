@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HospitaisService } from '../tables/hospitais.service';
 import { Hospital } from '../tables/hospital';
+import {ThemePalette} from '@angular/material/core';
+import {FormBuilder, FormGroup, Validators, FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import { Router, NavigationEnd, NavigationStart, ActivatedRoute } from '@angular/router';
 @Component({
@@ -9,9 +11,13 @@ import { Router, NavigationEnd, NavigationStart, ActivatedRoute } from '@angular
   styleUrls: ['./edit.component.css']
 })
 export class EditComponent implements OnInit {
+  [x: string]: any;
 
   id: string;
   hospital: Hospital = new Hospital();
+  color: ThemePalette = 'accent';
+  checked = false;
+  disabled = false;
 
   constructor(private hospitaisService: HospitaisService, 
     private route: ActivatedRoute, 
@@ -42,4 +48,6 @@ export class EditComponent implements OnInit {
   onSubmit(){
     this.updateHospital();
   }
+
+  isChecked = true;
 }

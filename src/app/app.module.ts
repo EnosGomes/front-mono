@@ -14,6 +14,10 @@ import { AppComponent } from './app.component';
 
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
   imports: [
@@ -27,6 +31,12 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     SidebarModule,
     AppRoutingModule,
     NgbModule,
+    MatSlideToggleModule,
+    MatButtonModule,
+   MatDialogModule,
+    MatButtonModule,
+    
+    
     
   ],
   declarations: [

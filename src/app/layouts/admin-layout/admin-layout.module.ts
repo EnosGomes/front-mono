@@ -19,12 +19,15 @@ import { EditComponent } from 'app/user/edit.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import { DialogAnimationsExampleDialog } from 'app/tables/table-dialog';
 
 
 @NgModule({
   imports: [
     MatButtonModule, MatDialogModule,
     MatDialogModule, MatButtonModule,
+    MatSlideToggleModule,
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
@@ -41,7 +44,9 @@ import { MatDialogModule } from '@angular/material/dialog';
     IconsComponent,
     MapsComponent,
     NotificationsComponent,
-    UpgradeComponent
+    UpgradeComponent,
+    EditComponent,
+    DialogAnimationsExampleDialog
   ],
   exports:[ReactiveFormsModule, FormsModule,
 
