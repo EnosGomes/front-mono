@@ -46,7 +46,7 @@ import { DialogAnimationsExampleDialog } from 'app/tables/table-dialog';
     NotificationsComponent,
     UpgradeComponent,
     EditComponent,
-    DialogAnimationsExampleDialog
+    DialogAnimationsExampleDialog,
   ],
   exports:[ReactiveFormsModule, FormsModule,
 

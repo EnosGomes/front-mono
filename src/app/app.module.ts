@@ -18,6 +18,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   imports: [
@@ -35,13 +36,11 @@ import {MatButtonModule} from '@angular/material/button';
     MatButtonModule,
    MatDialogModule,
     MatButtonModule,
-    
-    
-    
   ],
   declarations: [
     AppComponent,
-    AdminLayoutComponent,
+    AdminLayoutComponent,    
+    LoginComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],
