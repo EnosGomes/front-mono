@@ -39,7 +39,6 @@ export class EditComponent implements OnInit {
   updateHospital(){
     this.hospitaisService.updateHospital(this.hospital.id,this.hospital)
     .subscribe( data =>{
-      //console.log(data);
       this.router.navigate(['/table']);
     },
     error => console.log(error));

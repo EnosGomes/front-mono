@@ -21,6 +21,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { DialogAnimationsExampleDialog } from 'app/tables/table-dialog';
+import { CustomFilterPipe } from 'app/tables/custom-filter-pipe.pipe';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { DialogAnimationsExampleDialog } from 'app/tables/table-dialog';
     ReactiveFormsModule,
     RouterModule.forChild(AdminLayoutRoutes),
     LbdModule,
-    NguiMapModule.forRoot({apiUrl: 'https://maps.google.com/maps/api/js?key=YOUR_KEY_HERE'})
+    NguiMapModule.forRoot({apiUrl: 'https://maps.google.com/maps/api/js?key=YOUR_KEY_HERE'}), 
+    
   ],
   declarations: [
     HomeComponent,
@@ -47,6 +49,7 @@ import { DialogAnimationsExampleDialog } from 'app/tables/table-dialog';
     UpgradeComponent,
     EditComponent,
     DialogAnimationsExampleDialog,
+    CustomFilterPipe
   ],
   exports:[ReactiveFormsModule, FormsModule,
 

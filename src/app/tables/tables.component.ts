@@ -18,8 +18,23 @@ export class TablesComponent implements OnInit {
     public tableData2: TableData;
     hospital: Hospital = new Hospital();
     hospitais: Hospital[];
+    hospitais2: Hospital[];
     currentHospital = null;
     message = '';
+    nenhumHospital = true;
+    title = 'angular-text-search-highlight';
+  searchText = '';
+  searchTextHospital : string[];
+  characters = [
+    'Ant-Man',
+    'Aquaman',
+    'Asterix',
+    'The Atom',
+    'The Avengers',
+    'Batgirl',
+    'Batman',
+    'Batwoman'
+  ]
 
   constructor(private hospitaisService: HospitaisService, private router: Router, public dialog: MatDialog) { }
  
@@ -46,15 +61,21 @@ export class TablesComponent implements OnInit {
           ['5', 'Doris Greene', '$63,542', 'Malawi', 'Feldkirchen in Kärnten', ],
           ['6', 'Mason Porter', '$78,615', 'Chile', 'Gloucester' ]
       ]
-  }    
+    }    
+    this.getAllHospitaisAtivos();
+  }
 
+  getAllHospitaisAtivos(){
     this.hospitaisService.getAllHospitais()
     .subscribe(
       data => {
         this.hospitais = data;
-        console.log(data);
+        //this.searchTextHospital = this.hospitais.map((x)=> x.nome);
+        //this.hospitais.filter((hospital)=> hospital.ativo === true)
+       
+        this.nenhumHospital = false;
       },
-      error => {      });
+      error => {     });
   }
 
   updateHospital(id:string){
