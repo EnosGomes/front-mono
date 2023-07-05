@@ -9,8 +9,8 @@ declare interface RouteInfo {
 }
 export const ROUTES: RouteInfo[] = [
     { path: '/dashboard', title: 'Home',  icon: 'pe-7s-home', class: '' },
-    //{ path: '/user', title: 'Hospital',  icon:'pe-7s-user', class: '' },
-    { path: '/usuarios', title: 'Usuários',  icon:'pe-7s-user', class: '' },
+    { path: '/consultas', title: 'Consultas',  icon:'pe-7s-user', class: '' },
+    //{ path: '/usuarios', title: 'Usuários',  icon:'pe-7s-user', class: '' },
     { path: '/table', title: 'Hospitais',  icon:'pe-7s-note2', class: '' },
     //{ path: '/typography', title: 'Typography',  icon:'pe-7s-news-paper', class: '' },
     //{ path: '/icons', title: 'Icons',  icon:'pe-7s-science', class: '' },

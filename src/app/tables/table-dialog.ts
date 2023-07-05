@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 @Component({
     selector: 'table-dialog',
     templateUrl: 'table-dialog.html',
+    styleUrls: ['table-dialog.component.css'],
   })
   export class DialogAnimationsExampleDialog {
     constructor(

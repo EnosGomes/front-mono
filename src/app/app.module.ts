@@ -19,6 +19,12 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
 import { LoginComponent } from './login/login.component';
+import {
+  NgxAwesomePopupModule,
+  DialogConfigModule,
+  ConfirmBoxConfigModule,
+  ToastNotificationConfigModule
+} from '@costlydeveloper/ngx-awesome-popup';
 
 @NgModule({
   imports: [
@@ -36,11 +42,15 @@ import { LoginComponent } from './login/login.component';
     MatButtonModule,
    MatDialogModule,
     MatButtonModule,
+    NgxAwesomePopupModule.forRoot(), // Essential, mandatory main module.
+    DialogConfigModule.forRoot(), // Needed for instantiating dynamic components.
+    ConfirmBoxConfigModule.forRoot(), // Needed for instantiating confirm boxes.
+    ToastNotificationConfigModule.forRoot() // Needed for instantiating toast notifications.
   ],
   declarations: [
     AppComponent,
     AdminLayoutComponent,    
-    LoginComponent,
+    LoginComponent
   ],
   providers: [],
   bootstrap: [AppComponent],

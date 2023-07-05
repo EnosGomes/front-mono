@@ -4,6 +4,7 @@ import { HospitaisService } from './hospitais.service';
 import { Router } from '@angular/router';
 import {MatDialog, MatDialogRef, MatDialogModule} from '@angular/material/dialog';
 import { DialogAnimationsExampleDialog } from './table-dialog';
+import { ToastEvokeService } from '@costlydeveloper/ngx-awesome-popup';
 declare interface TableData {
     headerRow: string[];
     dataRows: string[][];
@@ -36,7 +37,11 @@ export class TablesComponent implements OnInit {
     'Batwoman'
   ]
 
-  constructor(private hospitaisService: HospitaisService, private router: Router, public dialog: MatDialog) { }
+  constructor(
+    private hospitaisService: HospitaisService, 
+    private router: Router, 
+    public dialog: MatDialog,
+    private toastEvokeService: ToastEvokeService) { }
  
   ngOnInit() {
 

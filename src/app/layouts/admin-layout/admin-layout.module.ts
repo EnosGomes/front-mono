@@ -22,6 +22,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { DialogAnimationsExampleDialog } from 'app/tables/table-dialog';
 import { CustomFilterPipe } from 'app/tables/custom-filter-pipe.pipe';
+import { ConsultasComponent } from 'app/consultas/consultas.component';
 
 
 @NgModule({
@@ -34,7 +35,7 @@ import { CustomFilterPipe } from 'app/tables/custom-filter-pipe.pipe';
     ReactiveFormsModule,
     RouterModule.forChild(AdminLayoutRoutes),
     LbdModule,
-    NguiMapModule.forRoot({apiUrl: 'https://maps.google.com/maps/api/js?key=YOUR_KEY_HERE'}), 
+    NguiMapModule.forRoot({apiUrl: 'https://maps.google.com/maps/api/js?key=COLARAQUI'}), 
     
   ],
   declarations: [
@@ -49,7 +50,8 @@ import { CustomFilterPipe } from 'app/tables/custom-filter-pipe.pipe';
     UpgradeComponent,
     EditComponent,
     DialogAnimationsExampleDialog,
-    CustomFilterPipe
+    CustomFilterPipe,
+    ConsultasComponent
   ],
   exports:[ReactiveFormsModule, FormsModule,
 

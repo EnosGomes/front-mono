@@ -4,7 +4,9 @@ import { Hospital } from '../tables/hospital';
 
 import { FormGroup, Validators, FormControl } from '@angular/forms';
 
-import { Router, NavigationEnd, NavigationStart } from '@angular/router';
+import { Router} from '@angular/router';
+
+import { ToastEvokeService } from '@costlydeveloper/ngx-awesome-popup';
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
@@ -16,7 +18,10 @@ export class UserComponent implements OnInit {
   momentForm! : FormGroup;
   formCliente: any;
 
-  constructor(private hospitaisService: HospitaisService, private router: Router) { }
+  constructor(
+    private hospitaisService: HospitaisService, 
+    private router: Router,
+    private toastEvokeService: ToastEvokeService) { }
 
   ngOnInit() {
     this.momentForm = new FormGroup({
@@ -33,6 +38,8 @@ export class UserComponent implements OnInit {
     this.hospitaisService.createHospital(this.hospital).subscribe( data =>{
       console.log(data);
       this.router.navigate(['/table']);
+      this.toastEvokeService.success('Sucesso!', 'Hospital salvo com sucesso!').subscribe();
+      //aqui enviar essa notificacao para o array de mensagens tambem para aparecer no badge
     },
     error => console.log(error));
   }
