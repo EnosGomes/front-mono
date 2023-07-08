@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginService } from './login.service';
-
+import { ToastEvokeService } from '@costlydeveloper/ngx-awesome-popup';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -14,7 +14,8 @@ export class LoginComponent implements OnInit {
   invalidLogin = false
 
   constructor(private router: Router,
-    private loginservice: LoginService) { }
+    private loginservice: LoginService,
+    private toastEvokeService: ToastEvokeService) { }
 
   ngOnInit() {
   }
@@ -26,6 +27,7 @@ export class LoginComponent implements OnInit {
       this.router.navigate(['/dashboard/'])
       this.invalidLogin = false
     } else
+    this.toastEvokeService.danger('Falha!', 'Usuário ou senha inválidos!').subscribe();
       this.invalidLogin = true
   }
 

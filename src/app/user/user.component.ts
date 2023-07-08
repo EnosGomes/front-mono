@@ -34,14 +34,17 @@ export class UserComponent implements OnInit {
   }
 
   //criar um novo hospital
-  saveHospital(){
-    this.hospitaisService.createHospital(this.hospital).subscribe( data =>{
-      console.log(data);
-      this.router.navigate(['/table']);
-      this.toastEvokeService.success('Sucesso!', 'Hospital salvo com sucesso!').subscribe();
+  async saveHospital(){
+    await this.hospitaisService.createHospital(this.hospital).subscribe( data =>{
+      
+           
       //aqui enviar essa notificacao para o array de mensagens tambem para aparecer no badge
     },
-    error => console.log(error));
+    error => console.log("Erro: ",error));
+
+    this.toastEvokeService.success('Sucesso!', 'Hospital salvo com sucesso!').subscribe();
+      this.router.navigate(['/table']); 
+
   }
 
   onSubmit(){

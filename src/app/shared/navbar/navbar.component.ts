@@ -1,9 +1,11 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
 import { ROUTES } from '../../sidebar/sidebar.component';
 import {Location, LocationStrategy, PathLocationStrategy} from '@angular/common';
+import { Alerta } from '../classes/alerta';
+import { AlertaService } from './alerta.service';
 
 @Component({
-    // moduleId: module.id,
+     moduleId: module.id,
     selector: 'navbar-cmp',
     templateUrl: 'navbar.component.html'
 })
@@ -13,17 +15,31 @@ export class NavbarComponent implements OnInit{
     location: Location;
     private toggleButton: any;
     private sidebarVisible: boolean;
+    alertas : Alerta[];
+    alertasNovos: boolean = false;
 
-    constructor(location: Location,  private element: ElementRef) {
-      this.location = location;
-          this.sidebarVisible = false;
+    constructor(
+        location: Location,  
+        private element: ElementRef, 
+        private alertaService: AlertaService) {
+        this.location = location;
+        this.sidebarVisible = false;
     }
 
     ngOnInit(){
       this.listTitles = ROUTES.filter(listTitle => listTitle);
       const navbar: HTMLElement = this.element.nativeElement;
       this.toggleButton = navbar.getElementsByClassName('navbar-toggle')[0];
+      this.retornAlertas();
     }
+    
+    retornAlertas(){
+         this.alertaService.retornaTodosAtivos()
+        .subscribe( data => {
+            this.alertas = data;
+        });
+    }
+
     sidebarOpen() {
         const toggleButton = this.toggleButton;
         const body = document.getElementsByTagName('body')[0];
@@ -62,5 +78,10 @@ export class NavbarComponent implements OnInit{
           }
       }
       return 'Dashboard';
+    }
+
+    lerNotificacoes() : void {
+        console.log(this.alertasNovos);
+        this.alertasNovos = true;
     }
 }
