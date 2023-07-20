@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Alerta } from '../classes/alerta';
 
-const baseUrl = 'https://consultaai.onrender.com/api/v1/alertas';
+const baseUrl = 'http://localhost:8080/api/v1/alertas';
 
 @Injectable({
   providedIn: 'root'

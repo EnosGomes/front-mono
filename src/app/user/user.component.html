@@ -18,28 +18,11 @@
                                 <div *ngIf="nome.invalid && formDir.submitted">
                                     <p *ngIf="nome.errors?.['required']">Nome inválido</p>
                                 </div>
+                                <div class="form-group">
+                                    <label>Código</label>
+                                    <input type="text" class="form-control" placeholder="Código do Hospital" id="codigo" [(ngModel)]="hospital.codigo" name="codigo" formControlName="codigo">
+                                </div>
                             </div>
-                            <!--
-                            <div class="row">
-                                <div class="col-md-5">
-                                    <div class="form-group">
-                                        <label>Company (disabled)</label>
-                                        <input type="text" class="form-control" disabled placeholder="Company" value="Creative Code Inc.">
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="form-group">
-                                        <label>Username</label>
-                                        <input type="text" class="form-control" placeholder="Username" value="michael23">
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">Email address</label>
-                                        <input type="email" class="form-control" placeholder="Email">
-                                    </div>
-                                </div>
-                            </div> -->
                             <button [disabled]="!formDir.valid" (click)="onSubmit()" class="btn btn-info btn-fill pull-right">Salvar</button>
                             <div class="clearfix"></div>
                         </form>

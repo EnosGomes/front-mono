@@ -35,7 +35,9 @@ import { ConsultasComponent } from 'app/consultas/consultas.component';
     ReactiveFormsModule,
     RouterModule.forChild(AdminLayoutRoutes),
     LbdModule,
-    NguiMapModule.forRoot({apiUrl: 'https://maps.google.com/maps/api/js?key=COLARAQUI'}), 
+    NguiMapModule.forRoot({
+      //apiUrl: 'https://maps.google.com/maps/api/js?key=COLARAQUI'
+    }), 
     
   ],
   declarations: [

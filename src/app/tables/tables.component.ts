@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import {MatDialog, MatDialogRef, MatDialogModule} from '@angular/material/dialog';
 import { DialogAnimationsExampleDialog } from './table-dialog';
 import { ToastEvokeService } from '@costlydeveloper/ngx-awesome-popup';
+import { Observable } from 'rxjs';
 declare interface TableData {
     headerRow: string[];
     dataRows: string[][];
@@ -18,7 +19,7 @@ export class TablesComponent implements OnInit {
     public tableData1: TableData;
     public tableData2: TableData;
     hospital: Hospital = new Hospital();
-    hospitais: Hospital[];
+    hospitais: Observable<Hospital[]>;
     hospitais2: Hospital[];
     currentHospital = null;
     message = '';
@@ -71,16 +72,7 @@ export class TablesComponent implements OnInit {
   }
 
   getAllHospitaisAtivos(){
-    this.hospitaisService.getAllHospitais()
-    .subscribe(
-      data => {
-        this.hospitais = data;
-        //this.searchTextHospital = this.hospitais.map((x)=> x.nome);
-        //this.hospitais.filter((hospital)=> hospital.ativo === true)
-       
-        this.nenhumHospital = false;
-      },
-      error => {     });
+    this.hospitais = this.hospitaisService.getAllHospitais();
   }
 
   updateHospital(id:string){

@@ -33,14 +33,14 @@
                     </div>
                     <div class="content table-responsive table-full-width">
 
-                        <table *ngIf="!nenhumHospital" class="table table-hover table-striped">
+                        <table class="table table-hover table-striped">
                             <thead>
                                 <tr>
                                     <th *ngFor="let cell of tableData1.headerRow">{{ cell }}</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr *ngFor="let hospital of hospitais | filter: searchTextHospital; index as i">
+                                <tr *ngFor="let hospital of hospitais | async | filter: searchTextHospital; index as i">
                                     <td>{{hospital.nome}}</td>
                                     <td>{{hospital.codigo}}</td>
                                     <td [className]="hospital.ativo ? 'ativa' : 'inativa'">{{hospital.ativo ? "Ativo" :"Inativo" }}</td>

@@ -1,21 +1,24 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, first, tap } from 'rxjs';
 import { Hospital } from './hospital';
 
-const baseUrl = 'https://consultaai.onrender.com/api/v1/hospitais';
+//const baseUrl = 'https://consultaai.onrender.com/api/v1/hospitais';
+const baseUrl = 'http://localhost:8080/api/v1/hospitais';
 
 @Injectable({
   providedIn: 'root'
 })
-export class HospitaisService {
-
-  //baseUrl = 'http://localhost:8080/api/v1';
+export class HospitaisService {  
 
     constructor(private http: HttpClient) { }
 
     getAllHospitais(): Observable<any> {
-        return this.http.get(`${baseUrl}/todos`);
+        return this.http.get<Hospital[]>(baseUrl+"/todos")
+        .pipe(
+          //first(), //ou take(1)
+          tap(hospitais => console.log(hospitais))
+        );
       }
 
       createHospital(hospital: Hospital): Observable<Object>{
