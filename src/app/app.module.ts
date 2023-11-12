@@ -25,6 +25,7 @@ import {
   ConfirmBoxConfigModule,
   ToastNotificationConfigModule
 } from '@costlydeveloper/ngx-awesome-popup';
+import { MedicoComponent } from './medico/medico.component';
 
 @NgModule({
   imports: [
@@ -50,7 +51,7 @@ import {
   declarations: [
     AppComponent,
     AdminLayoutComponent,    
-    LoginComponent
+    LoginComponent, MedicoComponent
   ],
   providers: [],
   bootstrap: [AppComponent],

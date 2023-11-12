@@ -10,6 +10,7 @@ import { NotificationsComponent } from '../../notifications/notifications.compon
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
 import { EditComponent } from 'app/user/edit.component';
 import { ConsultasComponent } from 'app/consultas/consultas.component';
+import { MedicoComponent } from 'app/medico/medico.component';
 //import { LoginComponent } from 'app/login/login.component';
 
 export const AdminLayoutRoutes: Routes = [
@@ -17,11 +18,11 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'user',           component: UserComponent },
     { path: 'consultas',      component: ConsultasComponent },
     { path: 'table',          component: TablesComponent },
-    { path: 'typography',     component: TypographyComponent },
+    { path: 'medicos',        component: MedicoComponent },
     { path: 'icons',          component: IconsComponent },
     { path: 'maps',           component: MapsComponent },
     { path: 'notifications',  component: NotificationsComponent },
     { path: 'upgrade',        component: UpgradeComponent },
-    { path: 'table/edit/:id',       component: EditComponent },
+    { path: 'table/edit/:id', component: EditComponent },
     //{ path: 'login',           component: LoginComponent },
 ];
