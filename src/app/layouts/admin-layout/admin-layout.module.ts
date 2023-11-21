@@ -23,6 +23,7 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { DialogAnimationsExampleDialog } from 'app/tables/table-dialog';
 import { CustomFilterPipe } from 'app/tables/custom-filter-pipe.pipe';
 import { ConsultasComponent } from 'app/consultas/consultas.component';
+import { PacientesComponent } from 'app/pacientes/pacientes.component';
 
 
 @NgModule({
@@ -53,7 +54,8 @@ import { ConsultasComponent } from 'app/consultas/consultas.component';
     EditComponent,
     DialogAnimationsExampleDialog,
     CustomFilterPipe,
-    ConsultasComponent
+    ConsultasComponent,
+    PacientesComponent
   ],
   exports:[ReactiveFormsModule, FormsModule,
 

@@ -6,6 +6,8 @@ import { HospitaisService } from 'app/tables/hospitais.service';
 import { Hospital } from 'app/tables/hospital';
 import { DialogAnimationsExampleDialog } from 'app/tables/table-dialog';
 import { Observable } from 'rxjs';
+import { ConsultaService } from './consultas.service';
+import { Consulta } from 'app/shared/classes/consulta';
 
 declare interface TableData {
   headerRow: string[];
@@ -22,14 +24,14 @@ export class ConsultasComponent implements OnInit {
   public tableData1: TableData;
     public tableData2: TableData;
     hospital: Hospital = new Hospital();
-    hospitais: Observable<Hospital[]>;
+    consultas: Observable<Consulta[]>;
     hospitais2: Hospital[];
     currentHospital = null;
     message = '';
-    nenhumHospital = true;
+    nenhumaConsulta = true;
     title = 'angular-text-search-highlight';
   searchText = '';
-  searchTextHospital : string[];
+  searchTextConsulta : string[];
   characters = [
     'Ant-Man',
     'Aquaman',
@@ -42,7 +44,8 @@ export class ConsultasComponent implements OnInit {
   ]
 
   constructor(
-    private hospitaisService: HospitaisService, 
+    //private hospitaisService: HospitaisService, 
+    private consultasService: ConsultaService,
     private router: Router, 
     public dialog: MatDialog,
     private toastEvokeService: ToastEvokeService) { }
@@ -75,15 +78,15 @@ export class ConsultasComponent implements OnInit {
   }
 
   getAllHospitaisAtivos(){
-    this.hospitais = this.hospitaisService.getAllHospitais();
+    this.consultas = this.consultasService.getAllConsultas();
   }
 
-  updateHospital(id:string){
+  updateConsulta(id:string){
     this.router.navigate(['/edit/'+id]) ;
   }
 
-  deleteHospital(id) {
-    this.hospitaisService.deleteHospital(id).subscribe(
+  deleteConsulta(id) {
+    this.consultasService.deleteConsulta(id).subscribe(
       data => {       },
       error => {      });
   }
@@ -96,7 +99,7 @@ export class ConsultasComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      //console.log("Id vindo da tela de hospitais: ", id);
+      //console.log("Id vindo da tela de consutas: ", id);
     });
   }
 }

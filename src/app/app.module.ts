@@ -26,6 +26,11 @@ import {
   ToastNotificationConfigModule
 } from '@costlydeveloper/ngx-awesome-popup';
 import { MedicoComponent } from './medico/medico.component';
+import { PacientesComponent } from './pacientes/pacientes.component';
+import { PacientesEditComponent } from './pacientes/pacientes-edit/pacientes-edit.component';
+import { PacientesNovoComponent } from './pacientes/pacientes-novo/pacientes-novo.component';
+import { ConsultaNovaComponent } from './consultas/consulta-nova/consulta-nova.component';
+import { ConsultaEditComponent } from './consultas/consulta-edit/consulta-edit.component';
 
 @NgModule({
   imports: [
@@ -41,7 +46,7 @@ import { MedicoComponent } from './medico/medico.component';
     NgbModule,
     MatSlideToggleModule,
     MatButtonModule,
-   MatDialogModule,
+    MatDialogModule,
     MatButtonModule,
     NgxAwesomePopupModule.forRoot(), // Essential, mandatory main module.
     DialogConfigModule.forRoot(), // Needed for instantiating dynamic components.
@@ -51,7 +56,7 @@ import { MedicoComponent } from './medico/medico.component';
   declarations: [
     AppComponent,
     AdminLayoutComponent,    
-    LoginComponent, MedicoComponent
+    LoginComponent, MedicoComponent, PacientesEditComponent, PacientesNovoComponent, ConsultaNovaComponent, ConsultaEditComponent
   ],
   providers: [],
   bootstrap: [AppComponent],

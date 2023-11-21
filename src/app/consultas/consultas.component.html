@@ -4,16 +4,16 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="form-group">
-                        <label for="searchTextHospital">Busca Consultas: </label>
-                        <input type="text" class="form-control" id="searchTextHospital" aria-describedby="searchTextHospital" [(ngModel)]="searchTextHospital" placeholder="Digite um hospital para pesquisar" autofocus>
+                        <label for="searchTextConsulta">Busca Consultas: </label>
+                        <input type="text" class="form-control" id="searchTextConsulta" aria-describedby="searchTextConsulta" [(ngModel)]="searchTextConsulta" placeholder="Digite um consulta para pesquisar" autofocus>
                     </div>
                     <div class="header">
                         <h4 class="title">Consultas</h4>
 
-                        <a routerLink="../user" class="nav-link"><button type="button" class="btn btn-primary">Adicionar Hospital</button></a>
+                        <a routerLink="../consultaNova" class="nav-link"><button type="button" class="btn btn-primary">Adicionar Consulta</button></a>
                     </div>
                     <div class="col-md-12">
-                        <div *ngIf="nenhumHospital">
+                        <div *ngIf="nenhumaConsulta">
                             <p>Não há registros</p>
                         </div>
                     </div>
@@ -26,17 +26,17 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr *ngFor="let hospital of hospitais | async | filter: searchTextHospital; index as i">
-                                    <td>{{hospital.nome}}</td>
-                                    <td>{{hospital.codigo}}</td>
-                                    <td [className]="hospital.ativo ? 'ativa' : 'inativa'">{{hospital.ativo ? "Ativo" :"Inativo" }}</td>
+                                <tr *ngFor="let consulta of consultas | async | filter: searchTextConsulta; index as i">
+                                    <td>{{consulta.nome}}</td>
+                                    <td>{{consulta.codigo}}</td>
+                                    <td [className]="consulta.ativo ? 'ativa' : 'inativa'">{{consulta.ativo ? "Ativo" :"Inativo" }}</td>
                                     <td>
-                                        <a routerLink="/table/edit/{{hospital.id}}" class="nav-link">
-                                            <button class="btn btn-primary btn-xs " (click)="updateHospital(hospital.id)">Editar</button></a>
-                                        <a routerLink="./table" class="nav-link">
-                                            <button class="btn btn-danger btn-xs" (click)="deleteHospital(hospital.id)">Excluir</button></a>
+                                        <a routerLink="/consulta/edit/{{consulta.id}}" class="nav-link">
+                                            <button class="btn btn-primary btn-xs " (click)="updateConsulta(consulta.id)">Editar</button></a>
+                                        <a routerLink="./consultas" class="nav-link">
+                                            <button class="btn btn-danger btn-xs" (click)="deleteConsulta(consulta.id)">Excluir</button></a>
                                     </td>
-                                    <td><button mat-raised-button (click)="openDialog(hospital.id)">Excluir</button></td>
+                                    <td><button mat-raised-button (click)="openDialog(consulta.id)">Excluir</button></td>
                                 </tr>
                             </tbody>
                         </table>
