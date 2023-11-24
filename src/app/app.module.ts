@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
+import { MAT_DATE_LOCALE } from '@angular/material/core'
 
 
 import { AppRoutingModule } from './app.routing';
@@ -31,6 +32,10 @@ import { PacientesEditComponent } from './pacientes/pacientes-edit/pacientes-edi
 import { PacientesNovoComponent } from './pacientes/pacientes-novo/pacientes-novo.component';
 import { ConsultaNovaComponent } from './consultas/consulta-nova/consulta-nova.component';
 import { ConsultaEditComponent } from './consultas/consulta-edit/consulta-edit.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatNativeDateModule} from '@angular/material/core';
 
 @NgModule({
   imports: [
@@ -48,6 +53,10 @@ import { ConsultaEditComponent } from './consultas/consulta-edit/consulta-edit.c
     MatButtonModule,
     MatDialogModule,
     MatButtonModule,
+    MatDatepickerModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatNativeDateModule,
     NgxAwesomePopupModule.forRoot(), // Essential, mandatory main module.
     DialogConfigModule.forRoot(), // Needed for instantiating dynamic components.
     ConfirmBoxConfigModule.forRoot(), // Needed for instantiating confirm boxes.
@@ -58,7 +67,9 @@ import { ConsultaEditComponent } from './consultas/consulta-edit/consulta-edit.c
     AdminLayoutComponent,    
     LoginComponent, MedicoComponent, PacientesEditComponent, PacientesNovoComponent, ConsultaNovaComponent, ConsultaEditComponent
   ],
-  providers: [],
+  providers: [
+    { provide: MAT_DATE_LOCALE, useValue: 'en-GB' }
+    ],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

@@ -20,8 +20,8 @@
                                 </div>
                                 <div class="col-md-5">
                                     <div class="form-group">
-                                        <select name="cities" class="form-control" data-title="Single Select" data-style="btn-default btn-block" data-menu-style="dropdown-blue">
-                                            <option *ngFor="let hospital of hospitais" value="{{hospital.id}}">{{ hospital.nome}} </option>
+                                        <select name="hospitais" class="form-control" data-title="Single Select" data-style="btn-default btn-block" data-menu-style="dropdown-blue">
+                                            <option *ngFor="let hospital of hospitais | async" value="{{hospital.id}}">{{ hospital.nome}} </option>
                                         </select>
                                     </div>
                                 </div>
@@ -40,8 +40,12 @@
                                 <div class="col-md-5">
 
                                     <div class="form-group">
-                                        <label>Data</label>
-                                        <input type="text" class="form-control" placeholder="cnes do Hospital" id="cnes" [(ngModel)]="consulta.nome" name="cnes" formControlName="cnes">
+                                        <mat-form-field>
+                                            <mat-label>Escolha uma Data:</mat-label>
+                                            <input matInput [matDatepicker]="picker">
+                                            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                                            <mat-datepicker #picker></mat-datepicker>
+                                        </mat-form-field>
                                     </div>
                                 </div>
                             </div>
