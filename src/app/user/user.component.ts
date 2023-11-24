@@ -25,7 +25,8 @@ export class UserComponent implements OnInit {
 
   ngOnInit() {
     this.momentForm = new FormGroup({
-      nome: new FormControl('', [Validators.required])
+      nome: new FormControl('', [Validators.required]),
+      cnes: new FormControl('', [Validators.required])
     });   
   }
 
@@ -52,7 +53,7 @@ export class UserComponent implements OnInit {
       console.log("form invalido")
       return;
     }
-    console.log(this.hospital);
+    console.log("Hospital: "+this.hospital.cnes);
     this.saveHospital();
   }
 

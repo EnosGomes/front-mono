@@ -4,23 +4,45 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="header">
-                        <h4 class="title">Criando um novo Hospital:</h4>
+                        <h4 class="title">Criando uma nova Consulta</h4>
                     </div>
                     <div class="content">
                         <form [formGroup]="momentForm" #formDir="ngForm">
                             <div class="row">
                                 <div class="col-md-5">
                                     <div class="form-group">
-                                        <label>Nome</label>
-                                        <input type="text" class="form-control" placeholder="Nome do consulta" id="nome" [(ngModel)]="consulta.nome" name="nome" formControlName="nome">
+                                        <label>Paciente</label>
+                                        <input type="text" class="form-control" placeholder="Nome do paciente" id="nome" [(ngModel)]="consulta.nome" name="nome" formControlName="nome">
                                     </div>
                                 </div>
                                 <div *ngIf="nome.invalid && formDir.submitted">
                                     <p *ngIf="nome.errors?.['required']">Nome inválido</p>
                                 </div>
-                                <div class="form-group">
-                                    <label>Código</label>
-                                    <input type="text" class="form-control" placeholder="Código do consulta" id="codigo" [(ngModel)]="consulta.codigo" name="codigo" formControlName="codigo">
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        <select name="cities" class="form-control" data-title="Single Select" data-style="btn-default btn-block" data-menu-style="dropdown-blue">
+                                            <option *ngFor="let hospital of hospitais" value="{{hospital.id}}">{{ hospital.nome}} </option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        <label>Especialidade</label>
+                                        <input type="text" class="form-control" placeholder="Nome do Hospital" id="nome" [(ngModel)]="consulta.nome" name="nome" formControlName="nome">
+                                    </div>
+                                </div>
+                                <div *ngIf="nome.invalid && formDir.submitted">
+                                    <p *ngIf="nome.errors?.['required']">Nome inválido</p>
+                                </div>
+                                <div class="col-md-5">
+
+                                    <div class="form-group">
+                                        <label>Data</label>
+                                        <input type="text" class="form-control" placeholder="cnes do Hospital" id="cnes" [(ngModel)]="consulta.nome" name="cnes" formControlName="cnes">
+                                    </div>
                                 </div>
                             </div>
                             <button [disabled]="!formDir.valid" (click)="onSubmit()" class="btn btn-info btn-fill pull-right">Salvar</button>

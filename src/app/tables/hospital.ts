@@ -1,6 +1,6 @@
 export class Hospital {
     id: string = '';
     nome: string ='';
-    codigo: string ='';
+    cnes: string ='';
     ativo: boolean = false;
 }

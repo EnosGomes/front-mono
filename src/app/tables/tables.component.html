@@ -42,7 +42,7 @@
                             <tbody>
                                 <tr *ngFor="let hospital of hospitais | async | filter: searchTextHospital; index as i">
                                     <td>{{hospital.nome}}</td>
-                                    <td>{{hospital.codigo}}</td>
+                                    <td>{{hospital.cnes}}</td>
                                     <td [className]="hospital.ativo ? 'ativa' : 'inativa'">{{hospital.ativo ? "Ativo" :"Inativo" }}</td>
                                     <td>
                                         <a routerLink="/table/edit/{{hospital.id}}" class="nav-link">

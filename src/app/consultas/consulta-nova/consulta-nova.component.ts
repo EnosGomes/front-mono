@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { ToastEvokeService } from '@costlydeveloper/ngx-awesome-popup';
 import { ConsultaService } from '../consultas.service';
 import { Consulta } from '../consulta';
+import { Hospital } from 'app/tables/hospital';
 
 @Component({
   selector: 'app-consulta-nova',
@@ -15,6 +16,20 @@ export class ConsultaNovaComponent implements OnInit {
   momentForm! : FormGroup;
   formCliente: any;
   consulta: Consulta = new Consulta();
+  hospitais: Hospital[] = [
+    {
+    id: "1",
+    ativo:true,
+    nome:"Dutra",
+    cnes:"444"
+  },
+  {
+    id: "1",
+    ativo:true,
+    nome:"Socorrao",
+    cnes:"444"
+  }
+];
 
   constructor(
     private consultaService: ConsultaService,
